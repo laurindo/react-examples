@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+.header {
+  position: fixed;
+  background-color: #442c4f;
+  box-shadow: #2e1d35 0px 0px 6px 0;
+  width: 100%;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header ul {
+  min-width: 600px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
 }
 
-.App-link {
-  color: #61dafb;
+.header li {
+  list-style: none;
+  margin: 0 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header li a {
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.5s ease;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.header li a:hover {
+  background-color: #01CACF;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.subMenu {
+  position: absolute;
+  right: 0;
+  top: 70px;
+  width: 100%;
+  background-color: #0b0325;
+  min-height: 50%;
+  z-index: 100;
+  box-shadow: #7e0ead 0px 4px 54px 0px;
+}
+
+.subMenu .content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  color: aliceblue;
+  padding: 20px;
+}
+
+.backdrop {
+  backdrop-filter: blur(2px);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Nunito', sans-serif;
+  color: #01CACF;
+  display: flex;
+  align-items: center;
 }
