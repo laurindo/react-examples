@@ -8,7 +8,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#01CAFF",
     borderRadius: 20,
     color: "#091E4B",
-    padding: "10px 20px"
+    padding: "10px 20px",
+    "&:hover": {
+      backgroundColor: "#a71ce6",
+      color: "#fff"
+    }
   }
 }));
 

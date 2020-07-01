@@ -7,18 +7,20 @@ const useStyles = makeStyles((theme) => ({
   container: {
     borderRadius: 5,
     padding: 5,
-    position: "fixed"
+    position: "fixed",
+    zIndex: 100
   },
   grid: {
     backgroundColor: "#442c4f",
-    height: "100vh"
+    height: "100vh",
+    zIndex: "-1"
   },
   title: {
     color: "#D6D4DB"
   },
 }));
 
-function ADSSection() {
+function AdsSection() {
   const classes = useStyles();
   useEffect(() => {}, []);
   return (
@@ -30,4 +32,4 @@ function ADSSection() {
   );
 }
 
-export default withWidth()(ADSSection);
+export default withWidth()(AdsSection);

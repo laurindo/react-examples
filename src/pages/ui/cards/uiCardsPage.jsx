@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import withWidth from "@material-ui/core/withWidth";
 import React from "react";
-import ADSSection from "../../section/adsSection";
+import ADSSection from "../../section/AdsSection";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -26,6 +26,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const cards = [{
+  name: "Airbnb Cards",
+  subtTitle: "Learn how to create amazing airbnb cards",
+  url: "/ui/cards/airbnbCard",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593610079/react-examples/airbnb-cover-cards.jpg"
+}, {
+  name: "Simple Card",
+  subtTitle: "Learn how to create amazing simple cards",
+  url: "/ui/cards/simpleCard",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593522879/react-examples/example01.png"
+}];
+
 function UICardsPage(props) {
   const classes = useStyles();
 
@@ -35,35 +47,17 @@ function UICardsPage(props) {
         <Grid item xs={12} lg={9}>
           <h3 className={classes.title}>UI Cards</h3>
           <Grid container spacing={2}>
-            <Grid item lg={4}>
-              <Card classes={{root: classes.card}} onClick={() => props.history.push("/ui/cards/simpleCard")}>
-                <CardHeader title={"Card Animation with CSS"} subheader={"Cool animation using css3"}/>
-                <CardMedia
-                  image={"https://cdn.dribbble.com/users/225098/screenshots/12470251/media/f023b4d4670819726258800420f09852.png"}
-                  className={classes.media}
-                />
-              </Card>
-            </Grid>
-
-            <Grid item lg={4}>
-              <Card classes={{root: classes.card}}>
-                <CardHeader title={"Card Animation with CSS"} subheader={"Cool animation using css3"}/>
-                <CardMedia
-                  image={"https://cdn.dribbble.com/users/225098/screenshots/12470251/media/f023b4d4670819726258800420f09852.png"}
-                  className={classes.media}
-                />
-              </Card>
-            </Grid>
-
-            <Grid item lg={4}>
-              <Card classes={{root: classes.card}}>
-                <CardHeader title={"Card Animation with CSS"} subheader={"Cool animation using css3"}/>
-                <CardMedia
-                  image={"https://cdn.dribbble.com/users/225098/screenshots/12470251/media/f023b4d4670819726258800420f09852.png"}
-                  className={classes.media}
-                />
-              </Card>
-            </Grid>
+            {cards.map((c, i) => (
+              <Grid item lg={4} key={i}>
+                <Card classes={{root: classes.card}} onClick={() => props.history.push(c.url)}>
+                  <CardHeader title={c.name} subheader={c.subtTitle}/>
+                  <CardMedia
+                    image={c.cover}
+                    className={classes.media}
+                  />
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Grid>
         <ADSSection/>
