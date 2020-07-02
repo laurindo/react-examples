@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const recents = [{
+  name: "E-commerce Cards",
+  url: "/ui/cards/ecommerceCard",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593692814/react-examples/ecommerce-cards.png"
+}, {
   name: "Airbnb Cards",
   url: "/ui/cards/airbnbCard",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593610079/react-examples/airbnb-cover-cards.jpg"

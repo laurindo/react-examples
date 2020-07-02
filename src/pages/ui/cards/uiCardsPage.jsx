@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const cards = [{
+  name: "Ecommerce Cards",
+  subtTitle: "Learn how to create amazing e-commerce cards",
+  url: "/ui/cards/ecommerceCard",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593692814/react-examples/ecommerce-cards.png"
+}, {
   name: "Airbnb Cards",
   subtTitle: "Learn how to create amazing airbnb cards",
   url: "/ui/cards/airbnbCard",
@@ -36,6 +41,11 @@ const cards = [{
   subtTitle: "Learn how to create amazing simple cards",
   url: "/ui/cards/simpleCard",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593522879/react-examples/example01.png"
+}, {
+  name: "Review Card",
+  subtTitle: "Learn how to create amazing review cards",
+  url: "/ui/cards/reviewCard",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593692569/react-examples/review-card.png.png"
 }];
 
 function UICardsPage(props) {

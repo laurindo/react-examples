@@ -9,6 +9,8 @@ import HomePage from "./pages/home/homePage";
 import UICardsPage from "./pages/ui/cards/uiCardsPage";
 import UISimpleCardPage from "./pages/ui/cards/details/uiSimpleCardPage";
 import UIAirbnbCardPage from "./pages/ui/cards/details/uiAirbnbCardPage";
+import UIReviewCardPage from "./pages/ui/cards/details/uiReviewCardPage";
+import UIEcommerceCardPage from "./pages/ui/cards/details/uiEcommerceCardPage";
 
 class BrowserRouter extends React.Component {
 
@@ -23,6 +25,8 @@ class BrowserRouter extends React.Component {
           <Route exact path="/ui/cards" component={UICardsPage}/>
           <Route exact path="/ui/cards/simpleCard" component={UISimpleCardPage}/>
           <Route exact path="/ui/cards/airbnbCard" component={UIAirbnbCardPage}/>
+          <Route exact path="/ui/cards/reviewCard" component={UIReviewCardPage}/>
+          <Route exact path="/ui/cards/ecommerceCard" component={UIEcommerceCardPage}/>
           <Redirect to="/notfound"/>
         </Switch>
         <Switch>

@@ -27,8 +27,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     borderRadius: 5,
     marginBottom: 20,
-    boxShadow: "#e219c7 0px 1px 11px 0px",
-    overflow: "hidden"
+    boxShadow: "#e219c7 0px 1px 11px 0px"
   },
   bread: {
     color: "#fff"
@@ -38,26 +37,16 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function UIAirbnbCardPage(props) {
+function UIReviewCardPage(props) {
   const classes = useStyles();
 
   useEffect(() => {
     const el = document.querySelector("#content");
     const script = document.createElement('script');
-    script.src = "//jsfiddle.net/dslaurindo/Lqmd9c2g/3/embed/js,html,css,result/dark/";
+    script.src = "//jsfiddle.net/dslaurindo/7s1arjp9/61/embed/js,html,css,result/dark/";
     script.async = true;
     el.appendChild(script);
-
-    const el2 = document.querySelector("#content2");
-    const script2 = document.createElement('script');
-    script2.src = "//jsfiddle.net/dslaurindo/dr2eLm8x/61/embed/js,html,css,result/dark/";
-    script2.async = true;
-    el2.appendChild(script2);
-
-    return () => {
-      el.removeChild(script);
-      el2.removeChild(script2);
-    }
+    return () => el.removeChild(script)
   }, []);
 
   return (
@@ -67,26 +56,14 @@ function UIAirbnbCardPage(props) {
           <Breadcrumbs aria-label="breadcrumb" classes={{root: classes.bread}}>
             <Link color="inherit" href="/">Home</Link>
             <Link color="inherit" href="#/ui/cards">Cards</Link>
-            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Airbnb Card</Typography>
+            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Simple Card</Typography>
           </Breadcrumbs>
-          <h1 className={classes.title}>Airbnb Cards</h1>
-          <p className={classes.title}>You will learn how to create this awesome Cards</p>
-
-
-          <h3 className={classes.title}>Model 01</h3>
+          <h1 className={classes.title}>Review Card</h1>
+          <p className={classes.title}>You will learn how to create these awesome Cards</p>
           <div className={classes.example}>
-            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593604106/react-examples/cards-airbnb2.png" alt="example airbnb card"/>
+            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593692814/react-examples/ecommerce-cards.png" alt="example e-commerce card"/>
           </div>
           <div id="content"></div>
-
-          <hr/>
-
-          <h3 className={classes.title}>Model 02</h3>
-          <div className={classes.example}>
-            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593608447/react-examples/airbnb-cards03.png" alt="example airbnb card model 02"/>
-          </div>
-          <div id="content2"></div>
-
         </Grid>
         <ADSSection/>
       </Grid>
@@ -94,4 +71,4 @@ function UIAirbnbCardPage(props) {
   );
 }
 
-export default withWidth()(UIAirbnbCardPage);
+export default withWidth()(UIReviewCardPage);
