@@ -4,6 +4,7 @@
   box-shadow: #2e1d35 0px 0px 6px 0;
   width: 100%;
   padding: 0;
+  z-index: 100;
 }
 
 .header ul {
@@ -37,7 +38,7 @@
 }
 
 .subMenu {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 70px;
   width: 100%;
@@ -45,6 +46,7 @@
   min-height: 50%;
   z-index: 500;
   box-shadow: #7e0ead 0px 4px 54px 0px;
+  zIndex: 10
 }
 
 .subMenu .content {

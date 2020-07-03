@@ -10,7 +10,10 @@ import ADSSection from "../section/AdsSection";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 40,
-    paddingTop: 100
+    paddingTop: 100,
+    [theme.breakpoints.down("xs")]: {
+      padding: 15
+    }
   },
   title: {
     color: "#D6D4DB"
@@ -41,6 +44,10 @@ const recents = [{
   name: "Simple Card",
   url: "/ui/cards/simpleCard",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593522879/react-examples/example01.png"
+}, {
+  name: "Simple Lists",
+  url: "/ui/lists/simpleList",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593781609/react-examples/simple-list.png"
 }];
 
 function HomePage(props) {

@@ -10,10 +10,7 @@ import ADSSection from "../../../section/AdsSection";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: 40,
-    paddingTop: 100,
-    [theme.breakpoints.down("xs")]: {
-      padding: 15
-    }
+    paddingTop: 100
   },
   title: {
     color: "#D6D4DB"
@@ -31,11 +28,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 5,
     marginBottom: 20,
     boxShadow: "#e219c7 0px 1px 11px 0px",
-  },
-  exampleImg: {
-    [theme.breakpoints.down("xs")]: {
-      width: "100%"
-    }
+    overflow: "hidden"
   },
   bread: {
     color: "#fff"
@@ -45,26 +38,18 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function UIReviewCardPage(props) {
+function UISimpleListPage(props) {
   const classes = useStyles();
 
   useEffect(() => {
     const el = document.querySelector("#content");
     const script = document.createElement('script');
-    script.src = "//jsfiddle.net/dslaurindo/7s1arjp9/61/embed/js,html,css,result/dark/";
+    script.src = "//jsfiddle.net/dslaurindo/pbLqjux4/20/embed/js,html,css,result/dark/";
     script.async = true;
     el.appendChild(script);
 
-
-    const el2 = document.querySelector("#content-furniture");
-    const script2 = document.createElement('script');
-    script2.src = "//jsfiddle.net/dslaurindo/tzwj98s2/90/embed/js,html,css,result/dark/";
-    script2.async = true;
-    el2.appendChild(script2);
-
     return () => {
       el.removeChild(script);
-      el2.removeChild(script2);
     }
   }, []);
 
@@ -74,22 +59,19 @@ function UIReviewCardPage(props) {
         <Grid item xs={12} lg={9}>
           <Breadcrumbs aria-label="breadcrumb" classes={{root: classes.bread}}>
             <Link color="inherit" href="/">Home</Link>
-            <Link color="inherit" href="#/ui/cards">Cards</Link>
-            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Simple Card</Typography>
+            <Link color="inherit" href="#/ui/lists">Lists</Link>
+            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Simple Lists</Typography>
           </Breadcrumbs>
-          <h1 className={classes.title}>Review Card</h1>
-          <p className={classes.title}>You will learn how to create these awesome Cards</p>
+          <h1 className={classes.title}>Airbnb Cards</h1>
+          <p className={classes.title}>You will learn how to create this awesome Lists</p>
+
+
+          <h3 className={classes.title}>Model 01</h3>
           <div className={classes.example}>
-            <img className={classes.exampleImg} src="https://res.cloudinary.com/luneswallet/image/upload/v1593692814/react-examples/ecommerce-cards.png" alt="example e-commerce card"/>
+            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593781609/react-examples/simple-list.png" alt="example simple list"/>
           </div>
           <div id="content"></div>
 
-
-          <p className={classes.title}>Model 02</p>
-          <div className={classes.example}>
-            <img className={classes.exampleImg} src="https://res.cloudinary.com/luneswallet/image/upload/v1593743782/react-examples/furniture-card.png" alt="example e-commerce model2 card"/>
-          </div>
-          <div id="content-furniture"></div>
         </Grid>
         <ADSSection/>
       </Grid>
@@ -97,4 +79,4 @@ function UIReviewCardPage(props) {
   );
 }
 
-export default withWidth()(UIReviewCardPage);
+export default withWidth()(UISimpleListPage);
