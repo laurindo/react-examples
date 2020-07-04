@@ -126,12 +126,12 @@ function Header(props) {
         <li><a href="/#" onMouseEnter={() => activeSubmenu("element")} onMouseLeave={() => disableSubmenu(null)}>Elements</a></li>
         <li><a href="/#" onMouseEnter={() => activeSubmenu("input")} onMouseLeave={() => disableSubmenu(null)}>Input</a></li>
         <li>
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="business" value="UCKCNTK53N6TC" />
-            <input type="hidden" name="item_name" value="You are our motivation if you would like to contribute, please click here. " />
+            <input type="hidden" name="item_name" value="You are our motivation and if you think that you can contribute please feel free. Thanks. " />
             <input type="hidden" name="currency_code" value="BRL" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <input type="image" src="https://res.cloudinary.com/luneswallet/image/upload/c_scale,w_147/v1593789136/react-examples/Donate-now.png" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
             <img alt="" border="0" src="https://www.paypal.com/en_BR/i/scr/pixel.gif" width="1" height="1" />
           </form>
         </li>

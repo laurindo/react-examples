@@ -2,7 +2,7 @@
   "name": "react-examples",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://laurindo.github.io/react-examples",
+  "homepage": "https://blackreact.com",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
