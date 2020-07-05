@@ -55,7 +55,7 @@ function Header(props) {
         url: "/ui/scroll"
       }, {
         name: "Single Page",
-        url: "/ui/single-page"
+        url: "/ui/single-pages"
       }, {
         name: "Responsive",
         url: "/ui/responsive"
