@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import withWidth from "@material-ui/core/withWidth";
 import React, {useEffect} from "react";
+import Footer from "../../components/footer";
 import ADSSection from "../section/AdsSection";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +34,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const recents = [{
+  name: "Delivery Food Examples",
+  url: "/ui/single-pages/delivery-food",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593909378/react-examples/delivery-food.png"
+}, {
+  name: "Mobile Examples",
+  url: "/ui/single-pages/mobile",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594041366/react-examples/mobile01.png"
+}, {
   name: "E-commerce Cards",
   url: "/ui/cards/ecommerceCard",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593692814/react-examples/ecommerce-cards.png"
@@ -76,6 +85,9 @@ function HomePage(props) {
         </Grid>
         <ADSSection/>
       </Grid>
+
+      <Footer/>
+
     </div>
   );
 }

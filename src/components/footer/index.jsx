@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="footer">
       <ul>
-        <li>© {new Date().getFullYear()}, Fortnite Brazil é uma página reservada ao compartilhamento de informações relevantes ao jogo Fortnite.</li>
+        <li>© {new Date().getFullYear()}, <b>Black React</b> is a page to help developers with React components, inspirations, themes and everything that involves development mobile/web.</li>
       </ul>
     </div>
   );

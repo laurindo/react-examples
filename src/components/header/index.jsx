@@ -130,7 +130,7 @@ function Header(props) {
   const displayMenu = () => {
     return (
       <ul className="headerMenu">
-        <li><a href="/#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/#" onMouseEnter={() => activeSubmenu("ui")} onMouseLeave={() => disableSubmenu(null)}>UI</a></li>
         <li><a href="/#" onMouseEnter={() => activeSubmenu("media")} onMouseLeave={() => disableSubmenu(null)}>Media</a></li>
         <li><a href="/#" onMouseEnter={() => activeSubmenu("element")} onMouseLeave={() => disableSubmenu(null)}>Elements</a></li>
@@ -179,7 +179,7 @@ function Header(props) {
     <header className="header">
       <div className="inner">
         {isMobile && <MenuIcon className={{root: classes.menu}} onClick={toggleDrawer(true)}/>}
-        <div className="logoContainer">
+        <a href="/" className="logoContainer">
           <Typography component={isMobile ? "h1" : "p"} className="logo">
             <svg width="35px" height="auto" viewBox="0 0 256 230" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
               <path
@@ -198,7 +198,7 @@ function Header(props) {
             Black React Examples
           </Typography>
           <small>Black Lives Matter</small>
-        </div>
+        </a>
 
         {isMobile ? (
           <Drawer
