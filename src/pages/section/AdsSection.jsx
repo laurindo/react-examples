@@ -56,7 +56,7 @@ function AdsSection() {
   return (
     <Grid item xs={12} lg={3} className={classes.grid}>
       <div className={classes.container}>
-        <h3 className={classes.titleAds}>You'll like (ADS)</h3>
+        <h3 className={classes.titleAds}>You might also like... (ADS)</h3>
         <Grid container>
           {links.map((l, i) => (
             <Grid key={i} item xs={12} className={classes.ads} onClick={() => window.open(l.link, "_blank")}>

@@ -66,8 +66,8 @@ function UIDeliveryFoodPage01(props) {
             <Link color="inherit" href="#/ui/single-pages/delivery-food">Delivery Food Pages</Link>
             <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Model 01</Typography>
           </Breadcrumbs>
-          <h1 className={classes.title}>Delivery Food</h1>
 
+          <h1 className={classes.title}>Delivery Food</h1>
           <h3 className={classes.title}>Model 01</h3>
           <div className={classes.example}>
             <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593909378/react-examples/delivery-food.png" alt="example simple list"/>
@@ -77,6 +77,7 @@ function UIDeliveryFoodPage01(props) {
         </Grid>
         <ADSSection/>
       </Grid>
+      <p>Tags: #delivery-food #food-delivery #ui #design #layout #single-page #inspiration #react #components</p>
     </div>
   );
 }

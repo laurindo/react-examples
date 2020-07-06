@@ -9,11 +9,34 @@ html, body {height: 100%;}
   z-index: 100;
 }
 
-.header ul {
+.headerMenu, .header ul {
   min-width: 600px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+@media only screen and (max-width: 426px) {
+  ul.headerMenu {
+    min-width: 200px;
+    display: block;
+    padding: 0 10px;
+  }
+
+  ul.headerMenu li {
+    list-style: none;
+    padding: 5px 0;
+  }
+
+  ul.headerMenu li a {
+    text-decoration: none;
+  }
+
+  ul.headerMenu li form {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+  }
 }
 
 .header li {
@@ -48,7 +71,12 @@ html, body {height: 100%;}
   min-height: 50%;
   z-index: 500;
   box-shadow: #7e0ead 0px 4px 54px 0px;
-  zIndex: 10
+}
+
+@media only screen and (max-width: 426px) {
+  .subMenu {
+    top: 0;
+  }
 }
 
 .subMenu .content {

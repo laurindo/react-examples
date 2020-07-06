@@ -29,32 +29,40 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     borderRadius: 5,
     padding: 5
+  },
+  bread: {
+    color: "#9863af",
+    fontSize: "12px"
+  },
+  breadCurrent: {
+    color: "#9863af",
+    fontSize: "12px",
+    fontWeight: "bold"
   }
 }));
 
 const lists = [{
-  subtTitle: "Delivery Food Examples",
-  url: "/ui/single-pages/delivery-food",
-  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593909378/react-examples/delivery-food.png"
-}, {
-  subtTitle: "Mobile Examples",
-  url: "/ui/single-pages/mobile",
+  url: "/ui/single-pages/mobile/details/01",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594041366/react-examples/mobile01.png"
 }];
 
-function UISinglePage(props) {
+function UIMobilePage(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
       <Grid container spacing={4}>
         <Grid item xs={12} lg={9}>
-          <h3 className={classes.title}>UI Single Pages</h3>
+          <Breadcrumbs aria-label="breadcrumb" classes={{root: classes.bread}}>
+            <Link color="inherit" href="/">Home</Link>
+            <Link color="inherit" href="#/ui/single-pages">Single Pages</Link>
+            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Mobile Pages</Typography>
+          </Breadcrumbs>
+          <h3 className={classes.title}>Mobile - Single Pages</h3>
           <Grid container spacing={2}>
             {lists.map((c, i) => (
               <Grid item lg={4} key={i}>
                 <Card classes={{root: classes.card}} onClick={() => props.history.push(c.url)}>
-                  <CardHeader title={c.name} subheader={c.subtTitle}/>
                   <CardMedia
                     image={c.cover}
                     className={classes.media}
@@ -70,4 +78,4 @@ function UISinglePage(props) {
   );
 }
 
-export default withWidth()(UISinglePage);
+export default withWidth()(UIMobilePage);

@@ -41,20 +41,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function UIDeliveryFoodPage02(props) {
+function UIMobilePage01(props) {
   const classes = useStyles();
-
-  useEffect(() => {
-    const el = document.querySelector("#content");
-    const script = document.createElement('script');
-    script.src = "//jsfiddle.net/dslaurindo/0g4m95up/10/embed/js,html,css,result/dark/";
-    script.async = true;
-    el.appendChild(script);
-
-    return () => {
-      el.removeChild(script);
-    }
-  }, []);
 
   return (
     <div className={classes.container}>
@@ -63,16 +51,21 @@ function UIDeliveryFoodPage02(props) {
           <Breadcrumbs aria-label="breadcrumb" classes={{root: classes.bread}}>
             <Link color="inherit" href="/">Home</Link>
             <Link color="inherit" href="#/ui/single-pages">Single Pages</Link>
-            <Link color="inherit" href="#/ui/single-pages/delivery-food">Delivery Food Pages</Link>
-            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Model 02</Typography>
+            <Link color="inherit" href="#/ui/single-pages/mobile">Mobile Pages</Link>
+            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>Model 01</Typography>
           </Breadcrumbs>
-          <h1 className={classes.title}>Delivery Food</h1>
 
-          <h3 className={classes.title}>Model 02</h3>
-          <div className={classes.example}>
-            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593917848/react-examples/delivery-food-02.png" alt="example simple list"/>
+          <h1 className={classes.title}>Delivery Food</h1>
+          <h3 className={classes.title}>Model 01</h3>
+          <div id="content">
+            <iframe
+              src="https://codesandbox.io/embed/single-page-fm8h2?fontsize=14&hidenavigation=1&theme=dark"
+              style={{"width":"100%", "height":"1000px", "border":0, "border-radius": "4px", "overflow":"hidden"}}
+              title="single-page"
+              allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+              sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            ></iframe>
           </div>
-          <div id="content"></div>
 
         </Grid>
         <ADSSection/>
@@ -82,4 +75,4 @@ function UIDeliveryFoodPage02(props) {
   );
 }
 
-export default withWidth()(UIDeliveryFoodPage02);
+export default withWidth()(UIMobilePage01);

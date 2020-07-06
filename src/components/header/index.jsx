@@ -19,6 +19,14 @@ const useStyles = makeStyles(theme => ({
       color: "#fff",
       backgroundColor: "#12b4e4",
       boxShadow: "#288ce6 0px 0px 8px 2px"
+    },
+    [theme.breakpoints.down("xs")]: {
+      backgroundColor: "transparent"
+    }
+  },
+  rootHeader: {
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "14px"
     }
   }
 }));
@@ -89,12 +97,14 @@ function Header(props) {
       "&&": {
         color: "#fff"
       }
+    },
+    paper: {
+      backgroundColor: "#330252"
     }
   };
 
   const isMobile = ["xs"].includes(props.width);
 
-  const [anchor, setAnchor] = useState("");
   const [open, setOpen] = useState("");
   const [submenuActived, setSubmenu] = useState(null);
 
@@ -139,6 +149,32 @@ function Header(props) {
     );
   };
 
+  const displaySubMenu = submenuActived => {
+    return submenuActived && (
+      <>
+        <div
+          className="subMenu"
+          onClick={() => isMobile ? activeSubmenu(submenuActived) : null}
+          onMouseEnter={() => isMobile ? null : activeSubmenu(submenuActived)}
+          onMouseLeave={disableSubmenu}
+        >
+          <div className="content">
+            <Grid container spacing={2}>
+              {SUBMENUS[submenuActived].list.map((l, i) => (
+                <Grid item key={i} xs={12} lg={3} onClick={() => visit(l.url)}>
+                  <Card classes={{root: classes.card}}>
+                    <CardHeader title={l.name} classes={{title: classes.rootHeader}}/>
+                    <CardMedia/>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
+        </div>
+      </>
+    )
+  };
+
   return (
     <header className="header">
       <div className="inner">
@@ -165,31 +201,19 @@ function Header(props) {
         </div>
 
         {isMobile ? (
-          <Drawer open={open} onClose={() => toggleDrawer(false)} ModalProps={{ onBackdropClick: toggleDrawer(false) }}>
+          <Drawer
+            open={open}
+            ModalProps={{onBackdropClick: toggleDrawer(false)}}
+            PaperProps={{classes: {root: classes.paper}}}
+            onClose={() => toggleDrawer(false)}
+          >
             {displayMenu()}
+            {displaySubMenu(submenuActived)}
           </Drawer>
         ) : (
           <>
             {displayMenu()}
-            {submenuActived && (
-              <>
-                {/*<div className="backdrop"/>*/}
-                <div className="subMenu" onMouseEnter={() => activeSubmenu(submenuActived)} onMouseLeave={disableSubmenu}>
-                  <div className="content">
-                    <Grid container spacing={2}>
-                      {SUBMENUS[submenuActived].list.map((l, i) => (
-                        <Grid item key={i} xs={12} lg={3} onClick={() => visit(l.url)}>
-                          <Card classes={{root: classes.card}}>
-                            <CardHeader title={l.name}/>
-                            <CardMedia/>
-                          </Card>
-                        </Grid>
-                      ))}
-                    </Grid>
-                  </div>
-                </div>
-              </>
-            )}
+            {displaySubMenu(submenuActived)}
           </>
         )}
       </div>

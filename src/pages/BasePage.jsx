@@ -1,55 +1,13 @@
 import React from "react";
+import Chart from "chart.js";
+import "./device.css";
 import "./delivery.css";
-
-class IconLogo extends React.Component {
-  render() {
-    const {width = 512, height = 512, color} = this.props;
-    return (
-      <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" enable-background="new 0 0 512 512" height={`${height}px`} viewBox="0 0 512 512"
-           width={`${width}px`}>
-        <g>
-          <g>
-            <path
-              d="m449.649 307.262-18.956-101.095h29.976v-30h-35.601l-5.625-30.002h-117.452v30h31.907l25.911 190.012h-84.69l-28.814-65.109c14.379-7.521 24.22-22.576 24.22-39.896 0-24.814-20.188-45.002-45.002-45.002h-35.173v-160.35h-190.35v190.349h50.173v60.004h51.771c-19.485 19.073-31.598 45.648-31.598 75.003v15h31.509c6.968 34.194 37.273 60.004 73.495 60.004s66.526-25.81 73.495-60.004h114.658c6.968 34.194 37.273 60.004 73.494 60.004 41.357 0 75.004-33.646 75.004-75.004-.001-37.043-27.002-67.88-62.352-73.914zm-419.649-91.093v-130.349h130.349v130.349zm50.173 60.004v-30.004h145.349c8.272 0 15.002 6.73 15.002 15.002s-6.73 15.002-15.002 15.002zm95.176 30h40.408l26.555 60.003h-140.46c6.967-34.196 37.274-60.003 73.497-60.003zm0 120.007c-19.557 0-36.232-12.543-42.424-30.004h84.848c-6.192 17.461-22.867 30.004-42.424 30.004zm219.196-250.015 24.775 132.132c-13.215 3.206-25.068 9.917-34.523 19.096l-20.622-151.227h30.37zm42.451 250.015c-24.815 0-45.003-20.188-45.003-45.004 0-24.815 20.188-45.003 45.003-45.003s45.004 20.188 45.004 45.003c0 24.816-20.188 45.004-45.004 45.004z"
-              data-original="#000000" className="active-path" data-old_color="#000000" fill={color || "#FFFFFF"}/>
-          </g>
-        </g>
-      </svg>
-    );
-  }
-}
+import "./grid.css";
 
 class Container extends React.Component {
   render() {
     return (
-      <div className="delivery-container">{this.props.children}</div>
-    );
-  }
-}
-
-class Content extends React.Component {
-  render() {
-    return (
-      <div className="delivery-content">{this.props.children}</div>
-    );
-  }
-}
-
-class DeliveryAddress extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      address: ""
-    };
-  }
-
-  render() {
-    const {placeholder, onClick} = this.props;
-    return (
-      <div className="delivery-address">
-        <input type="text" value={this.state.address} placeholder={placeholder} onChange={e => this.setState({address: e.target.value})}/>
-        <Button color="blue" onClick={onClick}>OK</Button>
-      </div>
+      <div className="container">{this.props.children}</div>
     );
   }
 }
@@ -76,9 +34,9 @@ class Footer extends React.Component {
   render() {
     const {children, ...props} = this.props;
     return (
-      <footer className="delivery-footer" {...props}>
+      <footer className="footer" {...props}>
         <div className="social-media"></div>
-        <div className="delivery-links">
+        <div className="links">
           <ul>
             <li><a href="#">Delivery Food</a></li>
             <li><a href="#">Privacy</a></li>
@@ -86,145 +44,287 @@ class Footer extends React.Component {
             <li><a href="#">Help Center</a></li>
           </ul>
         </div>
-        <p className="delivery-copyright">© 2020 Delivery Food - All reserved.</p>
+        <p className="copyright">© 2020 Delivery Food - All reserved.</p>
       </footer>
     );
   }
 }
 
-class DeliveryGrid extends React.Component {
+class Avatar extends React.Component {
   render() {
-    const {children, className, ...props} = this.props;
     return (
-      <div className={`delivery-grid ${this.props.className}`} {...props}>{children}</div>
+      <img
+        src="https://res.cloudinary.com/luneswallet/image/upload/v1593651930/react-examples/avatar.jpg"
+        className="avatar"
+        alt="avatar"
+        onClick={this.props.onClick}
+      />
+    );
+  }
+}
+
+class Modal extends React.Component {
+  render() {
+    const {title, animate, onClose} = this.props;
+    return (
+      <Grid className={`modal ${animate}`} direction="column">
+        <Grid align="center" justify="space-between" padding={2}>
+          <h3>{title}</h3>
+          {onClose && <small>close</small>}
+        </Grid>
+        {this.props.children}
+      </Grid>
     );
   }
 }
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      animate: ""
+    };
+  }
+
+  open = () => this.setState({animate: "animate"});
+  close = () => this.setState({animate: ""});
+
   render() {
+    debugger;
     return (
-      <div className="delivery-header">
-        <div className="delivery-header-top">
-          <div className="logo">
-            <p>Happy Food</p>
-            <IconLogo width={40} height={40} color="#68aae4"/>
-          </div>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#/restaurant">Restaurant</a></li>
-            <li><a href="#/careers">Careers</a></li>
-            <Button variant="outlined">BE PART</Button>
-          </ul>
-        </div>
-
-        <div className="middle">
-          <div className="absolute-left">
-            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593914085/react-examples/Pngtree_green_food_parsley_food_4406517.png"
-                 alt="food meal"/>
-          </div>
-          <div className="center">
-            <h1>Are you hungry? We can help you right now :)</h1>
-            <DeliveryAddress placeholder="Enter your delivery address"/>
-            {this.props.children}
-          </div>
-          <div className="absolute-right">
-            <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593881577/react-examples/FAVPNG_pepper-steak-meat-food_MF6Sfmnk.png"
-                 alt="food meal"/>
-          </div>
-        </div>
-
+      <div className="header">
+        <Modal title="Profile" animate={this.state.animate} padding={2} onClose={this.close}>
+          <Grid padding={2} align="center" justify="center">
+            content profile
+          </Grid>
+        </Modal>
+        <Grid>
+          <Grid align="flex-start" direction="column" className="logo">
+            <h3>Hello</h3>
+            <p className="title">Pedro</p>
+          </Grid>
+          <Grid justify="flex-end">
+            <img className="notification" src="https://res.cloudinary.com/luneswallet/image/upload/v1593958864/react-examples/notification.svg"
+                 alt="notification"/>
+            <Avatar onClick={this.open}/>
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
-export default class BasePage extends React.Component {
+class Grid extends React.Component {
+  render() {
+    const {padding = 0, align = "center", direction = "row", justify = "center", children} = this.props;
+    return (
+      <div
+        className={`grid padding${padding} ${this.props.className}`}
+        style={{"justify-content": justify, "align-items": align, "flex-direction": direction}}
+      >
+        {children}
+      </div>
+    );
+  }
+}
+
+class Account extends React.Component {
+  render() {
+    return (
+      <div className="account">
+        <Grid justify="space-between" direction="column">
+          <Grid align="center" justify="space-between" padding={4}>
+            <h3>Your account</h3>
+            <Button color="transparent">
+              <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593952388/react-examples/add.svg" alt="add"/>
+              add
+            </Button>
+          </Grid>
+          <Grid align="center" justify="space-between" padding={4}>
+            <div className="card account">
+              <p>$ 2,987.89</p>
+              <small>+ $1,356</small>
+            </div>
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
+}
+
+class SectionItem extends React.Component {
+  render() {
+    return (
+      <Grid align="center" className="section-item">
+        <Grid align="flex-start" direction="column">
+          <p className="title">{this.props.title}</p>
+          <p className="value">$ {this.props.value}</p>
+        </Grid>
+        <small className={`status ${this.props.status}`}>{this.props.status === "spend" ? "spend" : "earn"}</small>
+      </Grid>
+    );
+  }
+}
+
+class Section extends React.Component {
+  render() {
+    const {title, link, children, align, ...props} = this.props;
+    return (
+      <Grid align={align || "flex-start"} direction="column" className="section" {...props}>
+        <Grid align="center" direction="row" justify="space-between">
+          <h3>{title}</h3>
+          <small className="see-more">{link}</small>
+        </Grid>
+        {children}
+      </Grid>
+    );
+  }
+}
+
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      stores: [{
-        name: "McDonalds",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593890809/react-examples/mcdonalds.png"
+      transactions: [{
+        name: "Boosting",
+        description: "instagram post",
+        img: "https://image.flaticon.com/icons/svg/3056/3056301.svg",
+        value: "245",
+        createdAt: "02/01/2020"
       }, {
-        name: "Uber Eats",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593890860/react-examples/uber-eats.jpg"
+        name: "Banjo",
+        description: "music promotion",
+        img: "https://image.flaticon.com/icons/svg/3056/3056051.svg",
+        value: "123",
+        createdAt: "23/06/2020"
       }, {
-        name: "Pizza Hut",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593890917/react-examples/pizza-hut.jpg"
-      }, {
-        name: "Ben & Jerry's",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593890997/react-examples/ben-jerrys.png"
-      }, {
-        name: "Outback",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593891054/react-examples/outback.jpg"
-      }, {
-        name: "Subway",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593891137/react-examples/subway.png"
+        name: "Guitar",
+        description: "sound promotion",
+        img: "https://image.flaticon.com/icons/svg/3056/3056110.svg",
+        value: "15",
+        createdAt: "26/11/2020"
       }],
-      categories: [{
-        name: "Health Food",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593884703/react-examples/meal01.jpg"
+      users: [{
+        name: "Jhon",
+        avatar: "https://res.cloudinary.com/luneswallet/image/upload/v1593960473/react-examples/person3.jpg"
       }, {
-        name: "Local Culinary",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593885474/react-examples/meal02.jpg"
+        name: "Ana",
+        avatar: "https://res.cloudinary.com/luneswallet/image/upload/v1593960473/react-examples/person1.jpg"
       }, {
-        name: "Best Places",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593885521/react-examples/meal03.webp"
+        name: "Erika",
+        avatar: "https://res.cloudinary.com/luneswallet/image/upload/v1593960473/react-examples/person2.jpg"
       }, {
-        name: "Fast Food",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593886735/react-examples/food01.jpg"
-      }, {
-        name: "Pizza",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593886796/react-examples/pizza.jpg"
-      }, {
-        name: "Ice Cream",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593887710/react-examples/ice-cream2.jpg"
-      }, {
-        name: "Burguer",
-        cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593887779/react-examples/burguer.jpg"
+        name: "Juan",
+        avatar: "https://res.cloudinary.com/luneswallet/image/upload/v1593960473/react-examples/person4.jpg"
       }]
     };
   }
 
+  componentDidMount() {
+    this.ctx = document.getElementById("myChart").getContext("2d");
+    this.myChart = new Chart(this.ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["Boosting", "Banjo", "Guitar"],
+        datasets: [{
+          label: "# of Votes",
+          data: [245, 123, 15],
+          backgroundColor: [
+            "#62a3e8",
+            "#e64085",
+            "#40e6a1"
+          ],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        gridLines: {
+          lineWidth: 0,
+          drawBorder: false,
+          drawTicks: false
+        }
+      }
+    });
+  }
+
   render() {
-    const {stores, categories} = this.state;
+    const {users, transactions} = this.state;
     return (
       <Container>
-        <Header>
-          <DeliveryGrid className="header-cards">
-            {stores.map((store, i) => (
-              <div key={i} className="delivery-card stores">
-                <div className="image" style={{"background-image": `url(${store.cover})`}}/>
-                <p>{store.name}</p>
-              </div>
-            ))}
-          </DeliveryGrid>
-        </Header>
-        <Content>
-          <h1>Categories</h1>
-          <DeliveryGrid>
-            {categories.map((category, i) => (
-              <div key={i} className="delivery-card">
-                <div className="image" style={{"background-image": `url(${category.cover})`}}/>
-                <p>{category.name}</p>
-              </div>
-            ))}
-          </DeliveryGrid>
-        </Content>
-        <Content>
-          <h1>Stores</h1>
+        <Header/>
+        <Account/>
+        <SectionItem title="Drone AVMoc Pro X" value={2412.8} status="spend"/>
+
+        <div className="container-send-money">
+          <Grid justify="flex-start" className="send-money">
+            <Button color="transparent">
+              <img src="https://res.cloudinary.com/luneswallet/image/upload/v1593952388/react-examples/add.svg"/>
+            </Button>
+            <p>Send Money</p>
+          </Grid>
           <HorizontalScroll>
-            {stores.map((store, i) => (
-              <div key={i} className="delivery-card stores">
-                <div className="image" style={{"background-image": `url(${store.cover})`}}/>
-                <p>{store.name}</p>
+            {users.map((user, i) => (
+              <div key={i} className="horizontal-card users">
+                <div className="image" style={{"background-image": `url(${user.avatar})`}}/>
+                <p>{user.name}</p>
               </div>
             ))}
           </HorizontalScroll>
-        </Content>
+        </div>
+
+        <Section title="Recent transactions" link="See all" align="center" padding={4}>
+          {transactions.map((transaction, i) => (
+            <Grid key={i} className="card transactions" padding={4}>
+              <Grid>
+                <img src={transaction.img} alt={transaction.name}/>
+              </Grid>
+              <Grid direction="column" align="flex-start">
+                <h3>{transaction.name}</h3>
+                <small>{transaction.description}</small>
+              </Grid>
+              <Grid direction="column" align="flex-end">
+                <small>{transaction.value}</small>
+                <small className="createdAt">{transaction.createdAt}</small>
+              </Grid>
+            </Grid>
+          ))}
+        </Section>
+
+        <Section title="Chart transactions" padding={4}>
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </Section>
+
         <Footer/>
       </Container>
+    );
+  }
+}
+
+export default class BasePage extends React.Component {
+  render() {
+    return (
+      <div className="center">
+        <div className="marvel-device iphone-x">
+          <div className="notch">
+            <div className="camera"/>
+            <div className="speaker"/>
+          </div>
+          <div className="top-bar"/>
+          <div className="sleep"/>
+          <div className="bottom-bar"/>
+          <div className="volume"/>
+          <div className="overflow">
+            <div className="shadow shadow--tr"/>
+            <div className="shadow shadow--tl"/>
+            <div className="shadow shadow--br"/>
+            <div className="shadow shadow--bl"/>
+          </div>
+          <div className="inner-shadow"/>
+          <div className="screen">
+            <Main/>
+          </div>
+        </div>
+      </div>
     );
   }
 }

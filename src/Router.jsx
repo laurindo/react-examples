@@ -15,10 +15,14 @@ import UIEcommerceCardPage from "./pages/ui/cards/details/uiEcommerceCardPage";
 import UIListsPage from "./pages/ui/lists/uiListsPage";
 import UISimpleListPage from "./pages/ui/lists/details/uiSimpleListPage";
 
+// main single pages
 import UISinglePage from "./pages/ui/singlePage/UISinglePage";
+// sub single pages
 import UIDeliveryFoodPage from "./pages/ui/singlePage/details/UIDeliveryFoodPage";
 import UIDeliveryFoodPage01 from "./pages/ui/singlePage/details/UIDeliveryFoodPage01";
 import UIDeliveryFoodPage02 from "./pages/ui/singlePage/details/UIDeliveryFoodPage02";
+import UIMobilePage from "./pages/ui/singlePage/UIMobilePage";
+import UIMobilePage01 from "./pages/ui/singlePage/details/UIMobilePage01";
 
 import BasePage from "./pages/BasePage";
 
@@ -46,6 +50,9 @@ class BrowserRouter extends React.Component {
           <Route exact path="/ui/single-pages/delivery-food" component={UIDeliveryFoodPage}/>
           <Route exact path="/ui/single-pages/delivery-food/details/01" component={UIDeliveryFoodPage01}/>
           <Route exact path="/ui/single-pages/delivery-food/details/02" component={UIDeliveryFoodPage02}/>
+
+          <Route exact path="/ui/single-pages/mobile" component={UIMobilePage}/>
+          <Route exact path="/ui/single-pages/mobile/details/01" component={UIMobilePage01}/>
 
           <Redirect to="/notfound"/>
         </Switch>
