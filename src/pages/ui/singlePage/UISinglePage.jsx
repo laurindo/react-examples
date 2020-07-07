@@ -39,7 +39,7 @@ const lists = [{
 }, {
   subtTitle: "Mobile Examples",
   url: "/ui/single-pages/mobile",
-  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594041366/react-examples/mobile01.png"
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594131215/react-examples/mobile-example.gif"
 }];
 
 function UISinglePage(props) {

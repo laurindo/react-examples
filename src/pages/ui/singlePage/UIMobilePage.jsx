@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
-    padding: "24.25%"
+    padding: "44.25%"
   },
   ads: {
     backgroundColor: "#fff",
@@ -43,7 +43,10 @@ const useStyles = makeStyles((theme) => ({
 
 const lists = [{
   url: "/ui/single-pages/mobile/details/01",
-  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594041366/react-examples/mobile01.png"
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594132130/react-examples/mobile-01.png"
+}, {
+  url: "/ui/single-pages/mobile/details/02",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594131745/react-examples/mobile-google-now.png.png"
 }];
 
 function UIMobilePage(props) {

@@ -40,7 +40,7 @@ const recents = [{
 }, {
   name: "Mobile Examples",
   url: "/ui/single-pages/mobile",
-  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594041366/react-examples/mobile01.png"
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594131215/react-examples/mobile-example.gif"
 }, {
   name: "E-commerce Cards",
   url: "/ui/cards/ecommerceCard",
@@ -56,7 +56,7 @@ const recents = [{
 }, {
   name: "Simple Lists",
   url: "/ui/lists/simpleList",
-  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593781609/react-examples/simple-list.png"
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594131401/react-examples/ui_ios.gif"
 }];
 
 function HomePage(props) {
