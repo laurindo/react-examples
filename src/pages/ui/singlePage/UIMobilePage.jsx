@@ -16,18 +16,20 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 100
   },
   card: {
-    cursor: "pointer"
+    cursor: "pointer",
+    borderRadius: 8
   },
   title: {
     color: "#D6D4DB"
   },
   media: {
     height: 0,
-    padding: "44.25%"
+    padding: "44.25%",
+    borderRadius: 10
   },
   ads: {
     backgroundColor: "#fff",
-    borderRadius: 5,
+    borderRadius: 8,
     padding: 5
   },
   bread: {
@@ -42,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const lists = [{
+  url: "/ui/single-pages/mobile/details/03",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594214210/react-examples/google-play-mobile-cards.png"
+}, {
   url: "/ui/single-pages/mobile/details/01",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594132130/react-examples/mobile-01.png"
 }, {

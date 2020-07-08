@@ -24,6 +24,7 @@ import UIDeliveryFoodPage02 from "./pages/ui/singlePage/details/UIDeliveryFoodPa
 import UIMobilePage from "./pages/ui/singlePage/UIMobilePage";
 import UIMobilePage01 from "./pages/ui/singlePage/details/UIMobilePage01";
 import UIMobilePage02 from "./pages/ui/singlePage/details/UIMobilePage02";
+import UIMobilePage03 from "./pages/ui/singlePage/details/UIMobilePage03";
 
 import BasePage from "./pages/BasePage";
 
@@ -55,6 +56,7 @@ class BrowserRouter extends React.Component {
           <Route exact path="/ui/single-pages/mobile" component={UIMobilePage}/>
           <Route exact path="/ui/single-pages/mobile/details/01" component={UIMobilePage01}/>
           <Route exact path="/ui/single-pages/mobile/details/02" component={UIMobilePage02}/>
+          <Route exact path="/ui/single-pages/mobile/details/03" component={UIMobilePage03}/>
 
           <Redirect to="/notfound"/>
         </Switch>

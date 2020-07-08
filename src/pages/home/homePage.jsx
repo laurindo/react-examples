@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const recents = [{
+  name: "Google Play Cards",
+  url: "/ui/single-pages/mobile/details/03",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594214210/react-examples/google-play-mobile-cards.png"
+}, {
   name: "Delivery Food Examples",
   url: "/ui/single-pages/delivery-food",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593909378/react-examples/delivery-food.png"
@@ -49,6 +53,10 @@ const recents = [{
   name: "Airbnb Cards",
   url: "/ui/cards/airbnbCard",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593610079/react-examples/airbnb-cover-cards.jpg"
+}, {
+  name: "Google Now Single Page",
+  url: "/ui/single-pages/mobile/details/02",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594131745/react-examples/mobile-google-now.png.png"
 }, {
   name: "Simple Card",
   url: "/ui/cards/simpleCard",
