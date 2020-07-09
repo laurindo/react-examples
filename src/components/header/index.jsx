@@ -135,6 +135,7 @@ function Header(props) {
         <li><a href="/#" onMouseEnter={() => activeSubmenu("media")} onMouseLeave={() => disableSubmenu(null)}>Media</a></li>
         <li><a href="/#" onMouseEnter={() => activeSubmenu("element")} onMouseLeave={() => disableSubmenu(null)}>Elements</a></li>
         <li><a href="/#" onMouseEnter={() => activeSubmenu("input")} onMouseLeave={() => disableSubmenu(null)}>Input</a></li>
+        <li><a href="https://dslaurindo.typeform.com/to/DaSEYEa9" target="_blank">CONTRIBUTE</a></li>
         <li>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_donations" />
