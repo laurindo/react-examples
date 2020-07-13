@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const recents = [{
+  name: "Fight Covid - App",
+  url: "/ui/single-pages/covid",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594560822/react-examples/fight-covid-app.png"
+}, {
   name: "Google Play Cards",
   url: "/ui/single-pages/mobile/details/03",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594214210/react-examples/google-play-mobile-cards.png"

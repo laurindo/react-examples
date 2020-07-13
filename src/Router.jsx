@@ -18,6 +18,7 @@ import UISimpleListPage from "./pages/ui/lists/details/uiSimpleListPage";
 // main single pages
 import UISinglePage from "./pages/ui/singlePage/UISinglePage";
 // sub single pages
+import UIFightCovidPage from "./pages/ui/singlePage/details/UIFightCovidPage";
 import UIDeliveryFoodPage from "./pages/ui/singlePage/details/UIDeliveryFoodPage";
 import UIDeliveryFoodPage01 from "./pages/ui/singlePage/details/UIDeliveryFoodPage01";
 import UIDeliveryFoodPage02 from "./pages/ui/singlePage/details/UIDeliveryFoodPage02";
@@ -49,6 +50,8 @@ class BrowserRouter extends React.Component {
           <Route exact path="/ui/lists/simpleList" component={UISimpleListPage}/>
 
           <Route exact path="/ui/single-pages" component={UISinglePage}/>
+          <Route exact path="/ui/single-pages/covid" component={UIFightCovidPage}/>
+
           <Route exact path="/ui/single-pages/delivery-food" component={UIDeliveryFoodPage}/>
           <Route exact path="/ui/single-pages/delivery-food/details/01" component={UIDeliveryFoodPage01}/>
           <Route exact path="/ui/single-pages/delivery-food/details/02" component={UIDeliveryFoodPage02}/>

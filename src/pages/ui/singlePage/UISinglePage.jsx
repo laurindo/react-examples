@@ -29,10 +29,23 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     borderRadius: 5,
     padding: 5
+  },
+  bread: {
+    color: "#9863af",
+    fontSize: "12px"
+  },
+  breadCurrent: {
+    color: "#9863af",
+    fontSize: "12px",
+    fontWeight: "bold"
   }
 }));
 
 const lists = [{
+  subtTitle: "Fight Covid - App",
+  url: "/ui/single-pages/covid",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594560822/react-examples/fight-covid-app.png"
+}, {
   subtTitle: "Delivery Food Examples",
   url: "/ui/single-pages/delivery-food",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593909378/react-examples/delivery-food.png"
@@ -49,6 +62,10 @@ function UISinglePage(props) {
     <div className={classes.container}>
       <Grid container spacing={4}>
         <Grid item xs={12} lg={9}>
+          <Breadcrumbs aria-label="breadcrumb" classes={{root: classes.bread}}>
+            <Link color="inherit" href="/">Home</Link>
+            <Typography classes={{root: classes.breadCurrent}} onClick={() => props.history.back()}>UI Single Pages</Typography>
+          </Breadcrumbs>
           <h3 className={classes.title}>UI Single Pages</h3>
           <Grid container spacing={2}>
             {lists.map((c, i) => (

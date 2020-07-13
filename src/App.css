@@ -25,17 +25,41 @@ html, body {height: 100%; padding-bottom: 100px;}
 
   ul.headerMenu li {
     list-style: none;
-    padding: 5px 0;
+    color: #4eb4f1;
+    padding: 10px 0;
   }
 
   ul.headerMenu li a {
     text-decoration: none;
+    color: #4eb4f1;
   }
 
   ul.headerMenu li form {
     display: flex;
     justify-content: center;
     margin: 50px 0;
+  }
+
+  .subMenu {
+    position: absolute!important;
+  }
+
+  .subMenu .content {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0!important;
+    display: block!important;
+  }
+
+  .MuiButtonBase-root.MuiIconButton-root {
+    top: 5px;
+    z-index: 999;
+    position: absolute;
+    right: 0;
+  }
+  .MuiButtonBase-root.MuiIconButton-root .MuiIconButton-label {
+    color: #fff;
   }
 }
 
@@ -126,6 +150,10 @@ html, body {height: 100%; padding-bottom: 100px;}
   color: #fff;
   box-shadow: #8518b7 0px 0px 12px 0px;
   text-align: center;
+}
+
+.footer ul {
+  padding: 0 5px;
 }
 
 .footer li {

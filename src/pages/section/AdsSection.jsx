@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer"
   },
   title: {
-    color: "#D6D4DB"
+    padding: "5px 10px",
+    color: "#7d7d7d"
   },
   titleAds: {
     color: "#fff",
@@ -65,7 +66,7 @@ function AdsSection() {
                   image={l.cover}
                   className={classes.media}
                 />
-                <Typography>{l.description}</Typography>
+                <Typography className={classes.title}>{l.description}</Typography>
               </Card>
             </Grid>
           ))}

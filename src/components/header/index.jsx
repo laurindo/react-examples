@@ -1,7 +1,9 @@
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
+import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import Drawer from "@material-ui/core/Drawer";
 import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -28,6 +30,14 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "14px"
     }
+  },
+  menu: {
+    "&&": {
+      color: "#fff"
+    }
+  },
+  paper: {
+    backgroundColor: "#1a0129"
   }
 }));
 
@@ -92,14 +102,6 @@ function Header(props) {
       list: [{
         name: "inputs"
       }]
-    },
-    menu: {
-      "&&": {
-        color: "#fff"
-      }
-    },
-    paper: {
-      backgroundColor: "#330252"
     }
   };
 
@@ -127,14 +129,33 @@ function Header(props) {
     props.history.push(url);
   };
 
+  const displayListMobile = () => {
+    return (
+      <>
+        <li onClick={() => activeSubmenu("ui")}>UI</li>
+        <li onClick={() => activeSubmenu("media")}>Media</li>
+        <li onClick={() => activeSubmenu("element")}>Elements</li>
+        <li onClick={() => activeSubmenu("input")}>Input</li>
+      </>
+    );
+  };
+
+  const displayListDesktop = () => {
+    return (
+      <>
+        <li><a onMouseEnter={() => activeSubmenu("ui")} onMouseLeave={() => disableSubmenu(null)}>UI</a></li>
+        <li><a onMouseEnter={() => activeSubmenu("media")} onMouseLeave={() => disableSubmenu(null)}>Media</a></li>
+        <li><a onMouseEnter={() => activeSubmenu("element")} onMouseLeave={() => disableSubmenu(null)}>Elements</a></li>
+        <li><a onMouseEnter={() => activeSubmenu("input")} onMouseLeave={() => disableSubmenu(null)}>Input</a></li>
+      </>
+    );
+  };
+
   const displayMenu = () => {
     return (
       <ul className="headerMenu">
         <li><a href="/">Home</a></li>
-        <li><a href="/#" onMouseEnter={() => activeSubmenu("ui")} onMouseLeave={() => disableSubmenu(null)}>UI</a></li>
-        <li><a href="/#" onMouseEnter={() => activeSubmenu("media")} onMouseLeave={() => disableSubmenu(null)}>Media</a></li>
-        <li><a href="/#" onMouseEnter={() => activeSubmenu("element")} onMouseLeave={() => disableSubmenu(null)}>Elements</a></li>
-        <li><a href="/#" onMouseEnter={() => activeSubmenu("input")} onMouseLeave={() => disableSubmenu(null)}>Input</a></li>
+        {isMobile ? displayListMobile() : displayListDesktop()}
         <li><a href="https://dslaurindo.typeform.com/to/DaSEYEa9" target="_blank">CONTRIBUTE</a></li>
         <li>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -157,10 +178,10 @@ function Header(props) {
           className="subMenu"
           onClick={() => isMobile ? activeSubmenu(submenuActived) : null}
           onMouseEnter={() => isMobile ? null : activeSubmenu(submenuActived)}
-          onMouseLeave={disableSubmenu}
+          onMouseLeave={isMobile ? null : disableSubmenu}
         >
           <div className="content">
-            <Grid container spacing={2}>
+            <Grid container spacing={isMobile ? 0 : 2}>
               {SUBMENUS[submenuActived].list.map((l, i) => (
                 <Grid item key={i} xs={12} lg={3} onClick={() => visit(l.url)}>
                   <Card classes={{root: classes.card}}>
@@ -179,7 +200,7 @@ function Header(props) {
   return (
     <header className="header">
       <div className="inner">
-        {isMobile && <MenuIcon className={{root: classes.menu}} onClick={toggleDrawer(true)}/>}
+        {isMobile && <MenuIcon classes={{root: classes.menu}} onClick={toggleDrawer(true)}/>}
         <a href="/" className="logoContainer">
           <Typography component={isMobile ? "h1" : "p"} className="logo">
             <svg width="35px" height="auto" viewBox="0 0 256 230" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
@@ -209,6 +230,7 @@ function Header(props) {
             onClose={() => toggleDrawer(false)}
           >
             {displayMenu()}
+            {isMobile && submenuActived && <IconButton onClick={() => setSubmenu(null)}><CloseIcon/></IconButton>}
             {displaySubMenu(submenuActived)}
           </Drawer>
         ) : (
