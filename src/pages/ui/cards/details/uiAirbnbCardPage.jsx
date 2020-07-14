@@ -31,10 +31,13 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden"
   },
   bread: {
-    color: "#fff"
+    color: "#9863af",
+    fontSize: "12px"
   },
   breadCurrent: {
-    color: "#01CACF"
+    color: "#9863af",
+    fontSize: "12px",
+    fontWeight: "bold"
   }
 }));
 

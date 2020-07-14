@@ -50,6 +50,10 @@ const recents = [{
   url: "/ui/single-pages/mobile",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594131215/react-examples/mobile-example.gif"
 }, {
+  name: "Single Page Mobile",
+  url: "/ui/single-pages/mobile/details/01",
+  cover: "https://res.cloudinary.com/luneswallet/image/upload/v1594132130/react-examples/mobile-01.png"
+}, {
   name: "E-commerce Cards",
   url: "/ui/cards/ecommerceCard",
   cover: "https://res.cloudinary.com/luneswallet/image/upload/v1593692814/react-examples/ecommerce-cards.png"
